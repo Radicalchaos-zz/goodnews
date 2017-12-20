@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
- <body>
-   <div>
-     <p> Good News </p>
-     <% @articles.each do |article| %>
-        <p> <%= article.title %> </p>
-     <% end %>
-   </div>
- </body>
- </html>
+
+<body>
+
+  <div class="container">
+
+    <p> Good News </p>
+    <% @articles.each do |article| %>
+      <div class="row">
+        <p>
+          <%= article.title %>
+        </p>
+        <p>
+          <%= article.link %>
+        </p>
+      </div>
+      <% end %>
+
+  </div>
+
+</body>
+
+</html>

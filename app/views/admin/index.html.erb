@@ -1,0 +1,22 @@
+<div class="container">
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>title</th>
+    <th>last changed</th>
+    <th>modify</th>
+    <th>delete</th>
+  </tr>
+   </thead>
+   <% Article.find_each do |ar| %>
+   <tr>
+     <th><%= ar.title %> </th>
+     <th><%= time_ago_in_words(ar.updated_at) %></th>
+     <th><%= link_to "edit", edit_article_url(ar.id) %></th>
+     <th><%= link_to "delete", delete_article_url(ar.id) %></th>
+   </tr>
+
+
+   <% end %>
+</table>
+</div>
