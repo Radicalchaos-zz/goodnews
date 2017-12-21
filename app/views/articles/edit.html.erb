@@ -1,17 +1,17 @@
 <div class="container">
 
-  <%= form_tag update_article_url(id: @article.id, method: :post) do %>
+  <%= form_tag update_article_url(id: @article.id), method: :PUT do %>
     <div class="form-group">
       <label for="title">Title</label>
-      <input class="form-control form-control-lg" type="text" id="title" value="<%= @article.title %>" placeholder="Title goes here">
+      <%= text_field_tag "title", @article.title, id: "title", class: "form-control"  %>
     </div>
     <div class="form-group">
-      <label for="description">Desciription</label>
-      <input class="form-control" type="text" id="description" value="<%= @article.description %>" placeholder="Short description">
+      <label for="description">Description</label>
+      <%= text_area_tag "description", @article.description, id: "description", class: "form-control"  %>
     </div>
     <div class="form-group">
       <label for="link">Link</label>
-      <input class="form-control form-control-sm" type="text" id="link" value="<%= @article.link %>" placeholder="Add a link">
+      <%= text_field_tag "link", @article.link, id: "link", class: "form-control"  %>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>

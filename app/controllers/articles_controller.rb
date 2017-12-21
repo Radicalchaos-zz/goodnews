@@ -20,7 +20,10 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update_all(params)
+    @article.title= params[:title]
+    @article.description= params[:description]
+    @article.link= params[:link]
+    @article.save
     redirect_to admin_url
   end
 

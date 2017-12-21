@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   get "article/:id" => "articles#show", as: "article"
   get "article/:id/delete" => "articles#delete", as: "delete_article"
   get "article/:id/edit" => "articles#edit", as: "edit_article"
-  post "article/:id/update" => "articles#update", as: "update_article"
-
-
+  put "article/:id/update" => "articles#update", as: "update_article"
 
 
   get "admin" =>"admin#index"
