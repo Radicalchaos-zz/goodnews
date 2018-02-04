@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "article/:id/delete" => "articles#delete", as: "delete_article"
   get "article/:id/edit" => "articles#edit", as: "edit_article"
   put "article/:id/update" => "articles#update", as: "update_article"
+  get "about" => "pages#about"
 
 
   get "admin" =>"admin#index"
