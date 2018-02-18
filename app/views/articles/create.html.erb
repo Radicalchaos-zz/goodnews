@@ -1,0 +1,19 @@
+<div class="container">
+
+  <%= form_tag articles_url, method: :POST do %>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <%= text_field_tag "title", " " , id: "title", class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <%= text_area_tag "description", " ", id: "description", class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <label for="link">Link</label>
+      <%= text_field_tag "link", " ",   id: "link", class: "form-control"  %>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  <% end %>
+
+</div>

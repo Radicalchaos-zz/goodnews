@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Good News</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>Good News</title>
+  <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Goodnews.</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-
-          <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to('Sign Up', new_user_registration_path, class: "nav-link") %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('Login', new_user_session_path, class: "nav-link") %>
-          </li>
-
-          <% end %>
+<body>
 
 
-        </ul>
-      </div>
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <div class="container">
+     <a class="navbar-brand" href="#">Goodnews.</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+       <ul class="navbar-nav">
+         <li class="nav-item active">
+           <%= link_to('home', root_path, class: "nav-link") %>
+         </li>
+         <li class="nav-item">
+           <%= link_to('about', about_pages_path, class: "nav-link") %>
+         </li>
+         <li class="nav-item">
+           <%= link_to('contact', contact_pages_path, class: "nav-link") %>
+         </li>
+       </ul>
+       <ul class="navbar-nav ml-auto">
+
+         <% if user_signed_in? || admin_signed_in? %>
+         <li class="nav-item">
+           <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+         </li>
+         <% else %>
+         <li class="nav-item">
+           <%= link_to('Sign Up', new_user_registration_path, class: "nav-link") %>
+         </li>
+         <li class="nav-item">
+           <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+         </li>
+         <% end %>
+       </ul>
+   </div>
   </nav>
+
+
+
     <%= yield %>
-  </body>
+</body>
+
 </html>

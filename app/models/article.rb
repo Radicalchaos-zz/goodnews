@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
 
-
+  
 
 end

@@ -1,5 +1,11 @@
 class ArticlesController < ApplicationController
 
+
+  def new
+    Article.create(title: params[:title], description: params[:description], link: params[:link])
+    redirect_to admin_urls
+  end
+
   def show
     @article = Article.find(params[:id])
   end
